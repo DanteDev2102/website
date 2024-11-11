@@ -1,0 +1,12 @@
+services:
+  app:
+    build:
+      context: .
+    container_name: ${PROJECT_NAME}
+    command: yarn preview --host
+    ports:
+      - ${PORT}:4321
+    restart: always
+    volumes:
+      - ./:/usr/src/app
+      - ./node_modules:/usr/src/app/node_modules
