@@ -1,0 +1,13 @@
+services:
+  app:
+    build:
+      dockerfile: ./Dockerfile.dev
+      context: .
+    container_name: ${PROJECT_NAME}
+    command: yarn dev --host
+    ports:
+      - ${PORT}:4321
+    restart: always
+    volumes:
+      - ./:/usr/src/app
+      - ./node_modules:/usr/src/app/node_modules
